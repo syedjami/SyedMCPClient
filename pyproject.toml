@@ -1,0 +1,23 @@
+[project]
+name = "syed-mcp-client"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+[project.dependencies]
+langchain = "*"
+langgraph = "*"
+tomli = "*"
+mcp = "*"
+
+[tool.setuptools]
+packages = ["agents", "tools", "mcp_clients", "graphs"]
+
+[agent]
+graph = "graphs.main_graph:graph"
+
+[agent.paths]
+extra = ["agents", "tools", "mcp_clients", "graphs"]
+
+[agent.tools]
+stock = "tools.stock_tools:stock_price"
+weather = "tools.weather_tools:weather"
